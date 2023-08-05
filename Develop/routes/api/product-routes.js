@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try{
   // find all products
   // be sure to include its associated Category and Tag data
-  const productsData = await Product.findAll({include:[{model: Category}, {model: Tag}]});
+  const productsData = await Product.findAll({include:[{model: Category}, {model: ProductTag}, {model: Tag}]});
   res.status(200).json(productsData);                 
   }catch{
    // Handle errors
@@ -21,16 +21,15 @@ router.get('/:id', async (req, res) => {
   try{
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  const productsyID = await Product.findByPk(req.params.id,{include:[{model: Category}, {model: Tag}]});
-  if (!productsyID) {
+  const productByID = await Product.findByPk(req.params.id,{include:[{model: Category}, {model: ProductTag}, {model: Tag}]});
+  if (!productByID) {
       res.status(404).json({message:"Product ID not found"});
-  res.status(200).json(productsyID);    
+  res.status(200).json(productByID);    
   }
   }catch{
     // Handle errors
     res.status(500).json({message:` Product ID not found`});
-  }
-     
+  } 
 });
 
 // create new product
@@ -117,7 +116,8 @@ router.delete('/:id', async (req, res) => {
     const deleteProduct = await Product.destroy({where: {id:req.params.id}});
     !deleteCategory ? res.status(404).json({message:"category not found for delete"}) : res.status(200).json(deleteProduct);
   }catch{
-
+  // Handle errors
+  res.status(500).json(({messae: "not able to delete Product"}));
   }
 
 });
