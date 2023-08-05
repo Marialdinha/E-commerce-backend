@@ -15,7 +15,7 @@ const seedAll = async () => {
   console.info('\n----- PRODUCTS SEEDED -----\n');
 
   await seedTags();
-  console.loinfog('\n----- TAGS SEEDED -----\n');
+  console.info('\n----- TAGS SEEDED -----\n');
 
   await seedProductTags();
   console.info('\n----- PRODUCT TAGS SEEDED -----\n');
