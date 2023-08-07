@@ -13,15 +13,18 @@
 This application is the back end for an e-commerce site. It takes a working Express.js API and configures it to use Sequelize to interact with a MySQL database.
 
 ## Screenshot
- when the application is running, you can see the reultas of each route on the browser<br/>
-![localhost](./Develop/images/) <br/> <br/> 
+ when the application is running, you can see the reults of each route on the browser<br/>
+![localhost](./Develop/images/browser.png) <br/> <br/> 
+
+ when the application is running, this is what you see in the terminal<br/>
+![terminal](./Develop/images/Terminal.png) <br/> <br/> 
 
 ## Installation 
 1 - npm initialize <br/>
 2 - Install mysql2 <br/>
 3 - install dotenv  <br/>
 3 - install express  <br/>
-3 - install swquelize  <br/>
+3 - install sequelize  <br/>
 4 - go to mysql2 and source db/schema.sql <br/>
 5 - on the terminal npm run seed <br/>
 
@@ -33,7 +36,11 @@ This application is the back end for an e-commerce site. It takes a working Expr
   - api/tags
   
 ## Video
+First video showing get and get by ID <br/>
+https://www.loom.com/share/faac198cdb514be6b134a902484c8d6b?sid=3eea9873-904f-4cee-93b3-a323602aa590
 
+Sevcond video showing poist, put and delete <br/>
+https://www.loom.com/share/1f8ecf9c5ec04e26843da687d559efd9?sid=501e4075-7606-43c9-a491-d317ef3c80c4
 
 ## Contact
 You can contact me via email: marialda@bellsouth.net
