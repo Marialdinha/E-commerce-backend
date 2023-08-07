@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try{
   // find all products
   // be sure to include its associated Category and Tag data
-  const productsData = await Product.findAll({include:[{model: Category}, {model: ProductTag}, {model: Tag}]});
+  const productsData = await Product.findAll({include:[{model: Category}, {model: Tag}]});
   res.status(200).json(productsData);                 
   }catch{
    // Handle errors
@@ -21,25 +21,27 @@ router.get('/:id', async (req, res) => {
   try{
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  const productByID = await Product.findByPk(req.params.id,{include:[{model: Category}, {model: ProductTag}, {model: Tag}]});
+  const productByID = await Product.findByPk(req.params.id, {include:[{model: Category}, {model: Tag}]});
   if (!productByID) {
       res.status(404).json({message:"Product ID not found"});
-  res.status(200).json(productByID);    
   }
-  }catch{
+  res.status(200).json(productByID);   
+  }catch (err){
     // Handle errors
     res.status(500).json({message:` Product ID not found`});
   } 
 });
 
+
 // create new product
 router.post('/', (req, res) => {
+  // Important info
   /* req.body should look like this...
     {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
+      "product_name": "Basketball",
+      "price": 200.00,
+      "stock": 3,
+      "tagIds": [1, 2, 3, 4]
     }
   */
   Product.create(req.body)
@@ -114,10 +116,10 @@ router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try{
     const deleteProduct = await Product.destroy({where: {id:req.params.id}});
-    !deleteCategory ? res.status(404).json({message:"category not found for delete"}) : res.status(200).json(deleteProduct);
+    !deleteProduct ? res.status(404).json({message:"category not found for delete"}) : res.status(200).json({message:"Product deleted"});
   }catch{
   // Handle errors
-  res.status(500).json(({messae: "not able to delete Product"}));
+  res.status(500).json(({message: "not able to delete Product"}));
   }
 
 });
