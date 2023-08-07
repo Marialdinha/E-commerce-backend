@@ -13,8 +13,8 @@
 This application is the back end for an e-commerce site. It takes a working Express.js API and configures it to use Sequelize to interact with a MySQL database.
 
 ## Screenshot
- on the browser, you can see the reultas of each route <br/>
-![localhost]() <br/> <br/> 
+ when the application is running, you can see the reultas of each route on the browser<br/>
+![localhost](./Develop/images/) <br/> <br/> 
 
 ## Installation 
 1 - npm initialize <br/>
@@ -23,12 +23,14 @@ This application is the back end for an e-commerce site. It takes a working Expr
 3 - install express  <br/>
 3 - install swquelize  <br/>
 4 - go to mysql2 and source db/schema.sql <br/>
-5 - on teh terminal npm run seed <br/>
+5 - on the terminal npm run seed <br/>
 
 ## Usage
 1 - npm start in the terminal <br/>
-2 - Go to Insomnia to test the routes: <br/>
-  - 
+2 - Go to Insomnia to test get, get id, post, put and delete for each the routes below: <br/>
+  - api/categories:
+  - api/products
+  - api/tags
   
 ## Video
 
