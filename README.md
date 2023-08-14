@@ -36,11 +36,11 @@ When the application is running, this is what you see in the terminal <br/> <br/
   - api/tags
   
 ## Video
-First video showing get and get by Id <br/> <br/>
-https://www.loom.com/share/faac198cdb514be6b134a902484c8d6b?sid=3eea9873-904f-4cee-93b3-a323602aa590
+First video showing tag and category routes <br/> <br/>
+https://www.loom.com/share/8d3e7f0f298b4e0ca6409fd1039b1b16?sid=43598805-366b-4f52-a9c3-9e68cee050b7
 
-Second video showing post, put and delete <br/> <br/>
-https://www.loom.com/share/1f8ecf9c5ec04e26843da687d559efd9?sid=501e4075-7606-43c9-a491-d317ef3c80c4
+Second video showing product routes <br/> <br/>
+https://www.loom.com/share/1b298b14b4154be79c58dd6860c68ef9?sid=f412c3cc-3f76-450c-94c1-b418094cee0a
 
 ## Contact
 You can contact me via email: marialda@bellsouth.net
