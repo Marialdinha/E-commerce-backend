@@ -7,7 +7,10 @@ router.get('/', async (req, res) => {
   try{
  // find all tags
  // be sure to include its associated Product data
-  const tagsData = await Tag.findAll({include:[ {model: Product}]});
+  const tagsData = await Tag.findAll(
+    {include:[ 
+      {model: Product}]
+    });
   res.status(200).json(tagsData);                 
   }catch{
    // Handle errors
@@ -48,7 +51,11 @@ router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try{
     const updateTag = await Tag.update(req.body, {where: {id: req.params.id}});
-    !updateTag[0] ? res.status(404).json({message: "tag not found for update"}) : res.status(200).json(updateTag);
+    if (!updateTag[0]) {
+      res.status(404).json({ message: "tag not found for update" });
+      return;
+    }
+    res.status(200).json(updateTag);
   } catch (err) {
     // Handle errors
     res.status(500).json(({message: "not able to update tag"}))
@@ -59,7 +66,11 @@ router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try{
     const deleteTag = await Tag.destroy({where: {id:req.params.id}});
-    !deleteTag ? res.status(404).json({message:"Tag not found for deletion"}) : res.status(200).json(deleteTag);
+    if (!deleteTag) {
+      res.status(404).json({ message: "tag not found for deletion" });
+      return;
+    }
+    res.status(200).json({message:"tag deleted"});
   }catch{
   // Handle errors
   res.status(500).json(({messae: "not able to delete Tag"}));
